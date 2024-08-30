@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="/static/mobile_style.css" />
+    <link rel="stylesheet" href="/static/firebase.css" />
+    <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+          crossorigin="anonymous"
+        ></script>
+
+        <script>
+            function fun() {  
+            alert ("Mohon Isi dan Baca Test Secara Teliti");
+            document.getElementById("form-target").style.display = "block";
+            document.getElementById("contact").style.display = "none";
+            document.getElementById("credit").style.display = "none";
+            document.getElementById("change_text").innerHTML = "Mulai Test";
+  
+            };  
+            function slide() {
+  
+              var ele=document.getElementById("form-target");
+              if(ele.style.display == "block"){
+                document.getElementById("top_button").href = "#win2";
+              }else{
+                document.getElementById("top_button").href = "#contact";
+              }
+              
+            };
+        </script>
+</head>
+
+<body>
+    <div class="win1">
+        <div id="res" class="result">
+            {% if result %}
+            {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+            {% endfor %}
+            <h1>Hasil Analisis & Diagnosis</h1>
+            <p style="font-size: 20px">{{ result }}</p>
+            <img src="{{ chart_image }}" alt="Diagnosis Confidence Chart">
+            {% endif %}
+
+            <a href="/" class="button" id="top_button">
+                <p id="change_text">Beranda</p>
+            </a> 
+        </div>         
+    </div>
+</body>
+</html>

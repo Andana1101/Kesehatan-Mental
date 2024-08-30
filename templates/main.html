@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/style.css" />
+    <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+          crossorigin="anonymous"
+        ></script>
+        <script>
+          function fun() {  
+          alert ("Mohon Isi dan Baca Test Secara Teliti");
+          document.getElementById("form-target").style.display = "block";
+          document.getElementById("contact").style.display = "none";
+          document.getElementById("credit").style.display = "none";
+          document.getElementById("change_text").innerHTML = "Mulai Test";
+
+          };  
+          function slide() {
+
+            var ele=document.getElementById("form-target");
+            if(ele.style.display == "block"){
+              document.getElementById("top_button").href = "#win2";
+            }else{
+              document.getElementById("top_button").href = "#contact";
+            }
+            
+          };
+        </script>
+</head>
+
+<body>
+    <div class="win1">
+        <h1>Kesehatan Mental</h1>
+        <p>Pikiran Sehat <code>Hidup Berkualitas</code></p>
+
+        <a onclick="fun()" class="button" id="top_button">
+            <p id="change_text">Mulai Test</p>
+        </a>
+
+        <!--<div id="res" class="result">
+            {% if result %}
+            {% for variable, value in original_input.items() %}
+            <b>{{ variable }}</b> : {{ value }}
+            {% endfor %}
+            <h1>Result</h1>
+            <p style="font-size: 40px">{{ result }}</p>
+            <h2>Hasil Diagnosis</h2>
+            <img src="{{ chart_image }}" alt="Hasil Diagnosis">
+            {% endif %}
+        </div> --> 
+    </div>
+
+    <form id="form-target" action="{{ url_for('mainResult') }}" method="POST">
+        <div class="row win2" id="win2">
+            <h1>SOAL PERTANYAAN</h1>
+            <p class="subheading">Isi semua jawaban dan klik kirim untuk melihat hasilnya</p>
+            <h1>KATEGORI DEPRESI</h1>
+            <div class="col-6 win21">
+                <div class="card">
+                    <p>1. Apakah anda pernah merasakan tidak dapat melihat hal yang positif dari suatu kejadian ?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q1" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q1" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q1" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q1" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>2. Apakah anda pernah merasakan sepertinya tidak kuat lagi untuk melakukan suatu kegiatan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q2" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q2" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q2" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q2" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>3. Apakah anda pernah merasakan menjadi seseorang yang pesimis?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q3" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q3" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q3" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q3" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>4. Apakah anda pernah merasa sedih dan depresi?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q4" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q4" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q4" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q4" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>5. Apakah anda pernah merasakan kehilangan minat pada banyak hal ? (misal: makan, ambulasi, sosialisasi)</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q5" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q5" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q5" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q5" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                  <p>6. Apakah anda pernah merasakan diri menjadai seseorang yang tidak layak?</p>
+                  <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q6" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q6" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q6" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q6" value="3">
+                  </div>
+              </div>
+              <div class="card">
+                  <p>7. Apakah anda pernah merasakan hidup tidak berharga?</p>
+                  <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q7" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q7" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q7" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q7" value="3">
+                  </div>
+              </div>
+            </div>
+            <div class="col-6 win21">
+                <div class="card">
+                    <p>8. Apakah anda pernah merasakan tidak dapat menikmati hal - hal yang anda lakukan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q8" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q8" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q8" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q8" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>9. Apakah anda pernah meraskan hilang harapan dan putus asa?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q9" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q9" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q9" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q9" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>10. Apakah anda pernah merasakan sulit untuk antusias pada banyak hal?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q10" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q10" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q10" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q10" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>11. Apakah anda pernah merasakan menjadi seseorang yang tidak berharga?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q11" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q11" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q11" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q11" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>12. Apakah anda pernah merasakan tidak ada harapan untuk masa depan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q12" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q12" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q12" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q12" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                  <p>13. Apakah anda pernah merasakan hidup tidak berarti?</p>
+                  <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q13" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q13" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q13" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q13" value="3">
+                  </div>
+              </div>
+              <div class="card">
+                <p>14. Apakah anda pernah merasakan sulit untuk meningkatkan inisiatif dalam melakukan sesuatu?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q14" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q14" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q14" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q14" value="3">
+                </div>
+            </div>
+          </div>
+
+          <!--Kategori Kecemasan-->
+          <h1>KATEGORI KECEMASAN</h1>
+          <div class="col-6 win21">
+                <div class="card">
+                    <p>1. Apakah anda merasakan mulut terasa kering?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q15" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q15" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q15" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q15" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>2. Apakah anda pernah merasakan gangguan dalam bernafas (nafas cepat. sulit bernafas)?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q16" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q16" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q16" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q16" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>3. Apakah anda pernah merasakan adanya kelemahan pada anggota tubuh?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q17" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q17" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q17" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q17" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>4. Apakah anda pernah merasakan cemas yang berlebihan dalam suatu situasi namun dapat hilang jika hal/situasi tersebut berakhir?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q18" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q18" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q18" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q18" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>5. Apakah anda pernah merasa mudah kelelahan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q19" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q19" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q19" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q19" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                  <p>6. Apakah anda mudah berkeringat tanpa adanya stimulasi oleh cuaca maupun latihan fisik?</p>
+                  <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q20" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q20" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q20" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q20" value="3">
+                  </div>
+              </div>
+              <div class="card">
+                  <p>7. Apakah anda pernah merasakan ketakutan tanpa alasan yang jelas?</p>
+                  <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q21" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q21" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q21" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q21" value="3">
+                  </div>
+              </div>
+            </div>
+            <div class="col-6 win21">
+                <div class="card">
+                    <p>8. Apakah anda pernah merasakan kesulitan dalam menelan ketika makan atau minum?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q22" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q22" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q22" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q22" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>9. Apakah anda pernah merasakan adanya perubahan kegiatan jantung dan denyut nadi tanpa adanya stimulasi oleh latihan fisik?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q23" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q23" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q23" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q23" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>10. Apakah anda mudah panik?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q24" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q24" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q24" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q24" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>11.Apakah anda pernah merasakan takut diri anda menjadi terhambat oleh tugas yang tidak biasa anda lakukan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q25" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q25" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q25" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q25" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                    <p>12. Apakah anda pernah merasakan ketakutan?</p>
+                    <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q26" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q26" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q26" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q26" value="3">
+                    </div>
+                </div>
+                <div class="card">
+                  <p>13. Apakah anda mudah khawatir dengan situasi saat diri anda sehingga menjadi panik dan mempermalukan diri sendiri?</p>
+                  <div class="card-item">
+                        <label for="01">Saya tidak merasa seperti ini.</label>
+                        <input id="01" type="radio" name="q27" value="0" required>
+                        <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                        <input id="02" type="radio" name="q27" value="1">
+                        <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                        <input id="03" type="radio" name="q27" value="2">
+                        <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                        <input id="03" type="radio" name="q27" value="3">
+                  </div>
+              </div>
+              <div class="card">
+                <p>14. Apakah anda mudah gemetar?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q28" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q28" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q28" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q28" value="3">
+                </div>
+            </div>
+          </div>
+
+          <!--Kategori Stres-->
+          <h1>KATEGORI STRES</h1>
+          <div class="col-6 win21">
+            <div class="card">
+                <p>1. Apakah anda merasakan mulut terasa kering?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q29" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q29" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q29" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q29" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>2. Apakah anda pernah merasakan gangguan dalam bernafas (nafas cepat. sulit bernafas)?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q30" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q30" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q30" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q30" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>3. Apakah anda pernah merasakan adanya kelemahan pada anggota tubuh?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q31" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q31" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q31" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q31" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>4. Apakah anda pernah merasakan cemas yang berlebihan dalam suatu situasi namun dapat hilang jika hal/situasi tersebut berakhir?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q32" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q32" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q32" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q32" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>5. Apakah anda pernah merasa mudah kelelahan?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q33" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q33" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q33" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q33" value="3">
+                </div>
+            </div>
+            <div class="card">
+              <p>6. Apakah anda mudah berkeringat tanpa adanya stimulasi oleh cuaca maupun latihan fisik?</p>
+              <div class="card-item">
+                   <label for="01">Saya tidak merasa seperti ini.</label>
+                   <input id="01" type="radio" name="q34" value="0" required>
+                   <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                   <input id="02" type="radio" name="q34" value="1">
+                   <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                   <input id="03" type="radio" name="q34" value="2">
+                   <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                   <input id="03" type="radio" name="q34" value="3">
+              </div>
+          </div>
+          <div class="card">
+              <p>7. Apakah anda pernah merasakan ketakutan tanpa alasan yang jelas?</p>
+              <div class="card-item">
+                   <label for="01">Saya tidak merasa seperti ini.</label>
+                   <input id="01" type="radio" name="q35" value="0" required>
+                   <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                   <input id="02" type="radio" name="q35" value="1">
+                   <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                   <input id="03" type="radio" name="q35" value="2">
+                   <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                   <input id="03" type="radio" name="q35" value="3">
+              </div>
+          </div>
+        </div>
+        <div class="col-6 win21">
+            <div class="card">
+                <p>8. Apakah anda pernah merasakan kesulitan dalam menelan ketika makan atau minum?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q36" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q36" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q36" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q36" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>9. Apakah anda pernah merasakan adanya perubahan kegiatan jantung dan denyut nadi tanpa adanya stimulasi oleh latihan fisik?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q37" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q37" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q37" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q37" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>10. Apakah anda mudah panik?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q38" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q38" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q38" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q38" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>11.Apakah anda pernah merasakan takut diri anda menjadi terhambat oleh tugas yang tidak biasa anda lakukan?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q39" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q39" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q39" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q39" value="3">
+                </div>
+            </div>
+            <div class="card">
+                <p>12. Apakah anda pernah merasakan ketakutan?</p>
+                <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q40" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q40" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q40" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q40" value="3">
+                </div>
+            </div>
+            <div class="card">
+              <p>13. Apakah anda mudah khawatir dengan situasi saat diri anda sehingga menjadi panik dan mempermalukan diri sendiri?</p>
+              <div class="card-item">
+                    <label for="01">Saya tidak merasa seperti ini.</label>
+                    <input id="01" type="radio" name="q41" value="0" required>
+                    <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                    <input id="02" type="radio" name="q41" value="1">
+                    <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                    <input id="03" type="radio" name="q41" value="2">
+                    <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                    <input id="03" type="radio" name="q41" value="3">
+              </div>
+          </div>
+          <div class="card">
+            <p>14. Apakah anda mudah gemetar?</p>
+            <div class="card-item">
+                <label for="01">Saya tidak merasa seperti ini.</label>
+                <input id="01" type="radio" name="q42" value="0" required>
+                <label for="02">Saya merasa seperti ini pada beberapa hari.</label>
+                <input id="02" type="radio" name="q42" value="1">
+                <label for="03">Saya merasa seperti ini lebih dari separuh hari dalam seminggu.</label>
+                <input id="03" type="radio" name="q42" value="2">
+                <label for="03">Saya merasa seperti ini hampir setiap hari.</label>
+                <input id="03" type="radio" name="q42" value="3">
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <input class="button" type="submit"/>
+        </div>
+        </div>
+    </form>
+
+    <footer class="footer">
+        <div class="container px-2 px-lg-4 pb-4 pt-5 mb-5" id="contact">
+            <h2 class="marker marker-center"></h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="my-2 p-3 pt-2">
+                        <!-- <form id="contactForm"> -->
+                            <!--<h1 style="font-size: 20px;">Bahasa Pemrograman yang didukung oleh</h1>-->
+                            <div class="mb-3">
+                                <label for="name" class="form-label fw-bolder"></label>
+                                <br>
+                                <img src="static\images\html_logo-removebg-preview.png" alt="HTML" style="width: 15%; height: auto;">
+                                <img src="static\images\CSS_Logo-removebg-preview.png" alt="CSS" style="width: 15%; height: auto;">
+                                <img src="static\images\Javascript_logo-removebg-preview.png" alt="JavaScript" style="width: 15%; height: auto;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label fw-bolder"></label>
+                                <br>
+                                <img src="static\images\png-transparent-blue-and-yellow-logo-python-logo-programmer-fierce-python-s-cdr-angle-text-thumbnail-removebg-preview.png" alt="Python" style="width: 15%; height: auto;">
+                                <img src="static\images\1_cWuvkF15QKOsTHtgyIaqOA-removebg-preview.png" alt="Flask" style="width: 25%; height: auto;">
+                            </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+
+                <div class="col-md-6 mt-4 contact-info">
+                    <div class="mt-3 px-4">
+                        <div class="h5">Terima kasih Sudah Mengisi Test ini</div>
+                        <p id="contact_text">Test Ini Bertujuan untuk Mengetahui Tingkat Kesehatan Mental Anda</p>
+                        <p>Terima kasih</p>
+                        <p>Jika ada pertanyaan lebih lanjut, Hubungi -</p>
+                    </div>
+                    <div class="mt-3 px-4">
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <div class="pb-1">Email:</div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="pb-1 fw-bolder">andana0411@gmail.com</div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="pb-1">Github:</div>
+                            </div>
+                            <div class="col-sm-10">
+                                <a href="https://github.com/Andana1101" target="/blank"><div class="pb-1 fw-bolder">https://github.com/Andana1101</div></a>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="pb-1">Handphone:</div>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="pb-1 fw-bolder">+62-83893797764</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row credit" id="credit">
+            <p>&copy; Muhammad Haykal Andana</p>
+            <p>Machine Learning Engineer</p>
+        </div>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.4/firebase-database.js"></script>
+    <script src="/static/firebase.js"></script>
+
+</body>
+</html>
